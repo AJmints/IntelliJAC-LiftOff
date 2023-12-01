@@ -1,5 +1,5 @@
 # Project Name Placeholder
-<h2>JAC HUB LIFT OFF PROJECT</h2>
+IntelliJAC LIFT OFF PROJECT
 
 ## Overview of Project
 Educational app for children
