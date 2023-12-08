@@ -7,5 +7,5 @@ Educational app for children
 
 ## Meet the Team
 
--Name:Charu
--Features: Create accounts and login for users and administrators
+-Name:
+-Features: 
