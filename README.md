@@ -8,4 +8,7 @@ Educational app for children
 ## Meet the Team
 
 -Name: JP
--Features: Create CRUD repository for flashcards 
+-Features: Create CRUD repository for flashcards
+
+-Name: Charu
+-Features: Create accounts and login-system for users and administrators
