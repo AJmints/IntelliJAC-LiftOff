@@ -11,4 +11,4 @@ Educational app for children
 -Features: Create CRUD repository for flashcards
 
 -Name: Charu
--Features: Create accounts and login-system for users and administrators
+-Features: Create accounts and login-systemgit  for users and administrators
