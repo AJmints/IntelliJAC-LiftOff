@@ -12,3 +12,6 @@ Educational app for children
 
 -Name: Charu
 -Features: Create accounts and login-system for users and administrators
+
+-Name: Jialing
+-Features: Create app/exercises rating system 
