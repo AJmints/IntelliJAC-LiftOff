@@ -5,10 +5,11 @@ package com.intellijac.backend_intellijac.authentication;
 //package com.intellijac.backend_intellijac.authen;
 
 import com.intellijac.backend_intellijac.controllers.AuthenticationController;
+import com.intellijac.backend_intellijac.repository.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import com.intellijac.backend_intellijac.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
