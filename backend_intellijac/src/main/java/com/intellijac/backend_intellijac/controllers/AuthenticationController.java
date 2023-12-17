@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Controller
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping(value="api/")
 public class AuthenticationController {
 
     @Autowired
@@ -42,14 +42,14 @@ public class AuthenticationController {
         return userOpt.get();
     }
 
-    @GetMapping("/register")
+    @GetMapping("register")
     public String displayRegistrationForm(Model model, HttpSession session) {
         model.addAttribute("registerFormDTO", new RegisterFormDTO());
         model.addAttribute("loggedIn", session.getAttribute(userSessionKey) != null);
         return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registrationFormDTO, Errors errors, HttpServletRequest request, Model model) {
 
         //send user back if errors found
@@ -84,7 +84,7 @@ public class AuthenticationController {
         return "redirect:";
     }
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public String displayLoginForm(Model model, HttpSession session) {
         model.addAttribute(new LoginFormDTO());
 
@@ -92,9 +92,9 @@ public class AuthenticationController {
         return "login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors, HttpServletRequest request, Model model) {
-
+        System.out.println("*****login");
         if (errors.hasErrors()) {
             return "login";
         }
@@ -111,9 +111,9 @@ public class AuthenticationController {
     }
 
 
-    @GetMapping("/logout")
+    @GetMapping("logout")
     public String logOut(HttpServletRequest request){
         request.getSession().invalidate();
-        return  "redirect:/login";
+        return  "redirect:login";
     }
 }

@@ -29,7 +29,8 @@
 //}
 //
 import React, { Component } from 'react';
-import { request } from '../axios_helper';
+//import { request } from '../axios_helper';
+import fetchService from '../fetchService';
 
 class AuthContent extends Component {
   constructor(props) {
@@ -40,16 +41,22 @@ class AuthContent extends Component {
     };
   }
 
-  componentDidMount() {
-    request("GET", "/messages", {})
-      .then((response) => {
-        this.setState({ data: response.data, error: null });
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        this.setState({ error });
-      });
-  }
+//  componentDidMount() {
+//    request("GET", "http://localhost:8080/api", {})
+//      .then((response) => {
+//        this.setState({ data: response.data, error: null });
+//      })
+//      .catch((error) => {
+//        console.error("Error fetching data:", error);
+//        this.setState({ error });
+//      });
+//  }
+
+componentDidMount() {
+    fetchService.getUsers().then((res) => {
+    this.setState({data: res});
+    });
+}
 
   render() {
     const { data, error } = this.state;
