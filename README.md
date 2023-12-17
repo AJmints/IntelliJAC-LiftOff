@@ -15,3 +15,7 @@ Educational app for children
 
 -Name: Jialing
 -Features: Create app/exercises rating system 
+
+-Name: Jason
+-Features: Randomly generated math problems, Reward system with points, Feedback system for correct and wrong answers, API Consumption. 
+
