@@ -12,3 +12,6 @@ Educational app for children
 
 -Name: Charu
 -Features: Create accounts and login-system for users and administrators
+
+-Name: Jason
+-Features: Randomly generated math problems, Reward system with points, Feedback system for correct and wrong answers, API Consumption. 
