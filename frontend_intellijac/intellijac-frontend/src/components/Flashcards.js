@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FlashcardsService from "./service/Flashcards.service";
+import axios from "axios";
 
 function Flashcards () {
 
@@ -9,58 +10,32 @@ function Flashcards () {
     }
     )
 
-    const [msg, setMsg] = useState("")
+    const {name, description}=flashcard
 
-    const handleChange = (e) => {
-        const value = e.target.value;
-        setFlashcard({...flashcard, [e.target.name]: value})
-    }
+    const onInputChange = (e) => {
+        setFlashcard({...flashcard, [e.target.name]: e.target.value});
+    };
 
-    const saveFlashcard = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(flashcard);
-        FlashcardsService.saveFlashcard(flashcard)
-            .then((res) => {
-                console.log("Flashcard added succesully");
-                setMsg("Flashcard added succesully");
-                setFlashcard({
-                    name: "",
-                    description: "",
-                })
-            }).catch((error) => {
-                console.log(error);
-            });
-    }
-
-    //const webUrl = "http://localhost:8080/"
-    
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-
-    //     const data = {
-    //         name: String(event.target.name.value),
-    //         description: String(event.target.description.value)  
-    //     }
-        
-    //     console.log(data);
-        
-    // }    
+        await axios.post("http://localhost:8080/flashcards/addFlashcard", flashcard);
+    };
 
     return (
         <div>
             <h1>Create your own math flashcards!</h1>
-            <form onSubmit={(e) => saveFlashcard(e)}> 
+            <form onSubmit={(e) => onSubmit(e)}> 
                 <div>
                 <label for="flashcard-name"> Title</label>
                 </div>
                 <div>
-                <input type="text" id="flashcard-name" name="name" placeholder="Your flashcard's title" onChange={(e) => handleChange(e)} value={flashcard.name}/>
+                <input type="text" id="flashcard-name" name="name" placeholder="Your flashcard's title" onChange={(e) => onInputChange(e)} value={name}/>
                 </div>
                 <div>
                 <label for="flashcard-description"> Text</label>
                 </div>
                 <div>
-                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => handleChange(e)} value={flashcard.description}/>
+                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => onInputChange(e)} value={description}/>
                 </div>
                 <button type="submit"> Save your flashcard!</button>
             </form>
@@ -70,3 +45,6 @@ function Flashcards () {
 }
 
 export default Flashcards;
+
+ 
+    

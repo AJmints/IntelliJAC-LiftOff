@@ -1,6 +1,6 @@
 package com.intellijac.backend_intellijac.controllers;
 
-import com.intellijac.backend_intellijac.models.FlashcardEntity;
+import com.intellijac.backend_intellijac.models.Flashcard;
 import com.intellijac.backend_intellijac.repository.FlashcardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,9 +19,8 @@ public class FlashcardsController {
 
     @CrossOrigin
     @PostMapping("/addFlashcard")
-    public ResponseEntity<String> addFlashcard(@RequestBody FlashcardEntity flashcardEntity){
-        //flashcardRepository.save(flashcardEntity)
-        return new ResponseEntity<String>("Flashcard saved", HttpStatus.OK);
+    Flashcard newFlashcard(@RequestBody Flashcard newFlashcard){
+        return flashcardRepository.save(newFlashcard);
     }
 
 }
