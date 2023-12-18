@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/" >
-<head th:replace="fragments :: head">
+<head th:replace="~{fragments :: head}">
 </head>
 <body>
 <div class="centered-button-container">
@@ -10,7 +10,7 @@
         </form>
     </div>
 </div>
-<div th:replace="fragments :: page-header"></div>
+<div th:replace="~{fragments :: page-header}"></div>
 
 <div class="App-header">
     <h1> IntelliJAC QUIZ</h1>
