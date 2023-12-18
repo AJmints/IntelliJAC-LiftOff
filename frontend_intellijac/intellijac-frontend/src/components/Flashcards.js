@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import FlashcardsService from "./service/Flashcards.service";
 import axios from "axios";
 
 function Flashcards () {
