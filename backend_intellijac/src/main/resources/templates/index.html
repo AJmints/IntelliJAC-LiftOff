@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head th:replace="fragments :: head">
+</head>
+<body>
+<div class="centered-button-container">
+    <div class="button-container">
+        <form th:action="@{/login}" method="get" class="button">
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="App-header">
+    <h1> IntelliJAC QUIZ</h1>
+</div>
+    <div class="container">
+    <h2 class="dispaly-4">Login to rule the world of quiz!!</h2>
+
+    <img src="https://apptraitsolutions.com/wp-content/uploads/2021/01/C88IZyEo7g-1.jpg" class="App-logo" height="100" width="100" alt="logo"/>
+</div>
+
+
+</body>
+</html>

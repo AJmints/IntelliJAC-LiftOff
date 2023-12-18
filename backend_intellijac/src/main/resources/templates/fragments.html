@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:fragment="head">
+
+
+    <link th:href="@{/css/quiz.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+    <title>IntelliJAC</title>
+</head>
+
+<body>
+<div class="centered-button-container">
+    <div class="button-container">
+        <form th:action="@{/login}" method="get" class="button">
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+        </div>
+    </div>
+
+<div th:fragment="page-header" class="centered-button-container">
+    <div class="button-container">
+        <form th:action="@{/logout}" method="post" class="button">
+            <button type="submit" class="btn btn-dark">Log Out</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

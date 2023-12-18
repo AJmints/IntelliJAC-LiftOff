@@ -1,0 +1,280 @@
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+         transform: rotate(360deg)
+    }
+}
+
+.App-title {
+    font-size:2em;
+    margin-top: 20px;
+}
+
+.App-header {
+    background-color: #ae5757;
+    height: 20px;
+border-radius: 100px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    /*max-width: 800px;*/
+    margin: 20px auto;
+    background-color: #22ab84;
+    padding: 20px;
+    border-radius: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.justify-content-md-center {
+    justify-content: center;
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #7dc02c;
+    border-radius: 0.3rem;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.dispaly-4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+}
+
+
+
+.login-form-container {
+padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #FFC0CB;
+}
+
+.button-container {
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: gray;
+  text-align: center;
+}
+
+.button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: orange;
+}
+
+.button.active {
+  background-color: orange;
+  color: black;
+}
+
+.form-label {
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 200px;
+  color:black;
+  border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+
+
+}
+
+/*.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 10vh;
+  color: black;
+  background-color: ;
+   border-radius: 20px;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }*/
+.centered-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  padding: 8px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.centered-button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: skyblue;
+  border-radius: 20px;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Add this to your CSS file or style block */
+
+/*.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }/* Optionally, you can adjust the height based on your layout */
+
+
+/*.button-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+}
+
+.button.active {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.form-label {
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.form-input[type="password"] {}*/
+  /* Add specific styles for password input if needed */
+
+
+/*.form-input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.form-input[type="password"] {}*/
+  /* Add specific styles for password input if needed */
+
+
+/*.form-input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}*/
+
+  /* .App {
+    text-align: center;
+  }
+
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+   */

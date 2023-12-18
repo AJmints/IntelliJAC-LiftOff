@@ -1,5 +1,6 @@
 package com.intellijac.backend_intellijac.authentication;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,4 +19,5 @@ public class WebApplicationConfig implements WebMvcConfigurer {
         registry.addInterceptor(authenticationFilter());
     }
 }
+
 

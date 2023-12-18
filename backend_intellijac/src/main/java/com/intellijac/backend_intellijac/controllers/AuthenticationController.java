@@ -15,10 +15,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
 @Controller
+
 public class AuthenticationController {
 
     @Autowired
@@ -43,9 +45,15 @@ public class AuthenticationController {
         return userOpt.get();
     }
 
+    @RequestMapping("/")
+    public String index(Model model) {
+
+        return "index";
+    }
+
     @GetMapping("/register")
     public String displayRegistrationForm(Model model, HttpSession session) {
-        model.addAttribute("registerFormDTO", new RegistrationFormDTO());
+        model.addAttribute("registrationFormDTO", new RegistrationFormDTO());
         model.addAttribute("loggedIn", session.getAttribute(userSessionKey) != null);
         return "register";
     }
@@ -61,7 +69,7 @@ public class AuthenticationController {
         User existingUser = userRepository.findByUsername(registrationFormDTO.getUsername());
 
         if (existingUser != null) {
-            errors.rejectValue("username", "username.alreadyExists", "Auser with that name already exists");
+            errors.rejectValue("username", "username.alreadyExists", "A user with that name already exists");
             return "register";
         }
 
@@ -81,7 +89,7 @@ public class AuthenticationController {
         User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-
+        System.out.println("User registered: " + newUser.getUsername());
         return "redirect:";
     }
 
@@ -115,6 +123,6 @@ public class AuthenticationController {
     @GetMapping("/logout")
     public String logOut(HttpServletRequest request){
         request.getSession().invalidate();
-        return  "redirect:/login";
+        return  "redirect:/";
     }
 }
