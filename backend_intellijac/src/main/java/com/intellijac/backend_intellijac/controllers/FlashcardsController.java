@@ -1,15 +1,26 @@
 package com.intellijac.backend_intellijac.controllers;
 
+import com.intellijac.backend_intellijac.models.FlashcardEntity;
+import com.intellijac.backend_intellijac.repository.FlashcardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-@Controller
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/flashcards")
 public class FlashcardsController {
 
-    // TODO: Add getmapping to display page to add a new flashcard
+    @Autowired
+    private FlashcardRepository flashcardRepository;
 
-    // TODO: Add postmapping to submit page that adds a new flashcard
+    @PostMapping("/addFlashcard")
+    public ResponseEntity<String> addFlashcard(@RequestBody FlashcardEntity flashcardEntity){
+        flashcardRepository.save(flashcardEntity);
+        return new ResponseEntity<String>("Flashcard saved", HttpStatus.OK);
+    }
 
 }

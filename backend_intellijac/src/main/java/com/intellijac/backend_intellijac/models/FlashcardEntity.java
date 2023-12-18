@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 public class FlashcardEntity {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     // TODO: add validation
     private String name;
@@ -15,8 +15,8 @@ public class FlashcardEntity {
 
     public FlashcardEntity(){}
 
-    public FlashcardEntity(int id, String name, String description) {
-        this.id = id;
+    public FlashcardEntity(String name, String description) {
+        super();
         this.name = name;
         this.description = description;
     }
