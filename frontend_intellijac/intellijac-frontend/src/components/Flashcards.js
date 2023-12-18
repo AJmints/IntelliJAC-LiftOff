@@ -19,7 +19,7 @@ function Flashcards () {
     const saveFlashcard = (e) => {
         e.preventDefault();
         console.log(flashcard);
-        flashcardService.saveFlashcard(flashcard)
+        FlashcardsService.saveFlashcard(flashcard)
             .then((res) => {
                 console.log("Flashcard added succesully");
                 setMsg("Flashcard added succesully");
@@ -60,7 +60,7 @@ function Flashcards () {
                 <label for="flashcard-description"> Text</label>
                 </div>
                 <div>
-                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => handleChange(e)} value={flashcard.d}/>
+                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => handleChange(e)} value={flashcard.description}/>
                 </div>
                 <button type="submit"> Save your flashcard!</button>
             </form>
