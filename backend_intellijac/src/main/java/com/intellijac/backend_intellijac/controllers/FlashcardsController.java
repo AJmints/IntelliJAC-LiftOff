@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/flashcards")
 public class FlashcardsController {
 
     @Autowired
     private FlashcardRepository flashcardRepository;
 
+    @CrossOrigin
     @PostMapping("/addFlashcard")
     public ResponseEntity<String> addFlashcard(@RequestBody FlashcardEntity flashcardEntity){
         flashcardRepository.save(flashcardEntity);

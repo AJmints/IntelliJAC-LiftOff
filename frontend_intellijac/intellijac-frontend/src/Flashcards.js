@@ -61,7 +61,7 @@ function Flashcards () {
                 <label for="flashcard-description"> Text</label>
                 </div>
                 <div>
-                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => handleChange(e)} value={flashcard.description}/>
+                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => handleChange(e)} value={flashcard.d}/>
                 </div>
                 <button type="submit"> Save your flashcard!</button>
             </form>
