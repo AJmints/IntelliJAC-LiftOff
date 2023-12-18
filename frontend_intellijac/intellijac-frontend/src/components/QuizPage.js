@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import '../styles/QuizPage.css'
 
 const QuizPage = () => {
@@ -28,7 +28,7 @@ const QuizPage = () => {
   };
 
   return (
-    <div className='QuizPage'>
+    <div className='quiz-page'>
       <h1>Math Quiz</h1>
       <p>
         Solve the following problem:
