@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000")
 
 public class AuthenticationController {
 
@@ -41,7 +41,7 @@ public class AuthenticationController {
         return userOpt.get();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:3000/register")
     @GetMapping("register")
     public String displayRegistrationForm(Model model, HttpSession session) {
         model.addAttribute("registrationFormDTO", new RegistrationFormDTO());
@@ -49,7 +49,7 @@ public class AuthenticationController {
         return "register";
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:3000/register")
     @PostMapping("register")
     public String processRegistrationForm(@ModelAttribute @Valid RegistrationFormDTO registrationFormDTO, Errors errors, HttpServletRequest request, Model model) {
 
@@ -85,7 +85,7 @@ public class AuthenticationController {
         return "redirect:";
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:3000/login")
     @GetMapping("login")
     public String displayLoginForm(Model model, HttpSession session) {
         model.addAttribute(new LoginFormDTO());
@@ -94,7 +94,7 @@ public class AuthenticationController {
         return "login";
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:3000/login")
     @PostMapping("login")
     public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors, HttpServletRequest request, Model model) {
         System.out.println("*****login");
@@ -113,7 +113,7 @@ public class AuthenticationController {
         return "redirect:";
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:3000/logout")
     @GetMapping("logout")
     public String logOut(HttpServletRequest request){
         request.getSession().invalidate();
