@@ -3,12 +3,26 @@ import './Rating.css';
 import { FaStar } from "react-icons/fa";
 
 function Ratings() {   
-    
+      
     // useState with onclick...
-    const [rating, setRating] = useState(null);
+    const [rating, setRating] = useState("");
+
+    const handleclick=(e)=>{
+        e.preventDefault()
+        const ratings={rating}
+        //const {ratingNumber}=rating
+        //console.log(ratings);
+        fetch("http://localhost:8080/ratings/add", {
+            method: "POST",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify(ratings)
+        }).then(()=>{
+            console.log("New rating added.");
+        })
+    }
 
     return (
-        <body>
+        //<body>
             <div>
                 <h1>Please rate our website!</h1>
                 {/* mapped over 5 items using an empty array */}
@@ -21,7 +35,7 @@ function Ratings() {
                     <label> 
                         {/* used radio input, so users can "click on stars". Radio input hidden using css  */}
                         {/* onclick... */}
-                        <input type="radio" name="rating" value={ratingNumber} onClick={() => setRating(ratingNumber)}></input> 
+                        <input type="radio" name="rating" value={ratingNumber} onClick={(handleclick) => setRating(ratingNumber)}></input> 
                         {/* set colors of stars with ternary operator*/}
                         <FaStar className="star" size={50} color={ratingNumber <= rating ? "#ffa500" : "#808080"}/>
                     </label>
@@ -31,10 +45,11 @@ function Ratings() {
                 <h4> Your rating is {rating}.</h4>
             </div>
 
-        </body>       
+        //</body>     
 
 
     );
+
 }
 
 export default Ratings;
