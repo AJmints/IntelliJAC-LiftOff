@@ -12,13 +12,5 @@ public class BackendIntellijacApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BackendIntellijacApplication.class, args);
 	}
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/a**").allowedOrigins("http://localhost:3000");
-			}
-		};
-	}
+
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -20,6 +20,19 @@ const onSubmit = async(e) => {
  e.preventDefault();
 await axios.post("http://localhost:8080/login", loginform);
 };
+
+useEffect(() => {
+    // Fetch initial data for the login form when the component mounts
+    axios.get("http://localhost:8080/login")
+      .then(response => {
+        // Handle the response as needed, update component state, etc.
+        console.log(response.data); // Log the response data for debugging
+      })
+      .catch(error => {
+        // Handle errors
+        console.error("Error fetching initial data for login form:", error);
+      });
+  }, []);
 
  return (
     <div className="container" style={{ marginRight: '50px', margin: '10px auto'}}>
