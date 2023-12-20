@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins="http://localhost:3000")
+
 
 public class AuthenticationController {
 
@@ -41,7 +42,7 @@ public class AuthenticationController {
         return userOpt.get();
     }
 
-    @CrossOrigin(origins = "http://localhost:3000/register")
+    @CrossOrigin(origins="http://localhost:3000")
     @GetMapping("register")
     public String displayRegistrationForm(Model model, HttpSession session) {
         model.addAttribute("registrationFormDTO", new RegistrationFormDTO());
@@ -49,7 +50,7 @@ public class AuthenticationController {
         return "register";
     }
 
-    @CrossOrigin(origins = "http://localhost:3000/register")
+    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping("register")
     public String processRegistrationForm(@ModelAttribute @Valid RegistrationFormDTO registrationFormDTO, Errors errors, HttpServletRequest request, Model model) {
 
@@ -85,7 +86,7 @@ public class AuthenticationController {
         return "redirect:";
     }
 
-    @CrossOrigin(origins = "http://localhost:3000/login")
+    @CrossOrigin(origins="http://localhost:3000")
     @GetMapping("login")
     public String displayLoginForm(Model model, HttpSession session) {
         model.addAttribute(new LoginFormDTO());
@@ -94,10 +95,10 @@ public class AuthenticationController {
         return "login";
     }
 
-    @CrossOrigin(origins = "http://localhost:3000/login")
+    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping("login")
     public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors, HttpServletRequest request, Model model) {
-        System.out.println("*****login");
+        //System.out.println("*****login");
         if (errors.hasErrors()) {
             return "login";
         }
@@ -113,11 +114,13 @@ public class AuthenticationController {
         return "redirect:";
     }
 
-    @CrossOrigin(origins = "http://localhost:3000/logout")
+    @CrossOrigin(origins="http://localhost:3000")
     @GetMapping("logout")
     public String logOut(HttpServletRequest request){
         request.getSession().invalidate();
         return  "redirect:login";
     }
+
+
 }
 

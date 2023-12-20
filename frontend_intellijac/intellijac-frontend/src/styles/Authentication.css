@@ -1,6 +1,6 @@
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+    height: 100px;
 }
 
 @keyframes App-logo-spin {
@@ -19,7 +19,7 @@
 
 .App-header {
     background-color: #ae5757;
-        background-color: #ae5757;
+
             height: 150px;
             border-radius:100px;
             padding: 20px;
@@ -65,6 +65,7 @@ h1 {
 
 .justify-content-md-center {
     justify-content: center;
+
 
 
 }

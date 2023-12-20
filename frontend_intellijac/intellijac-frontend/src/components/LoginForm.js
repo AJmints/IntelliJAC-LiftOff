@@ -1,45 +1,70 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
-  const navigate = useNavigate();  // useNavigate hook for navigation
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+function Loginforms () {
+const[loginform,setLoginform]=useState({
+username: "",
+password: "",
+}
+)
 
-  const handleLogin = () => {
-    axios.post('http://localhost:8080/login', { username, password })
-      .then(response => {
-        console.log('Login successful', response.data);
-        // Redirect to a dashboard or home page
-        navigate('/login');
-      })
-      .catch(err => {
-        setError('Invalid username or password');
-        console.error('Login error', err);
-      });
-  };
+const{username,password}=loginform;
+const navigate = useNavigate();
 
-  return (
-    <div>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
-  );
+const onInputChange = (e) => {
+setLoginform({...loginform, [e.target.name]:e.target.value});
+};
+const onSubmit = async(e) => {
+ e.preventDefault();
+await axios.post("http://localhost:8080/login", loginform);
 };
 
-export default Login;
+ return (
+    <div className="container" style={{ marginRight: '50px', margin: '10px auto'}}>
+      <h1>Lets Go!!</h1>
+      <form onSubmit={(e) => onSubmit(e)} className="login-form-container">
+        <div>
+          <label htmlFor="loginform-username" className="form-label">
+            Username:
+          </label>
+          <input
+            type="text"
+            id="loginform-username"
+            name="username"
+            placeholder="Username"
+            onChange={(e) => onInputChange(e)}
+            value={username}
+            className="form-input"
+          />
+        </div>
+        <div>
+          <label htmlFor="loginform-password" className="form-label">
+            Password:
+          </label>
+          <input
+            type="password"
+            id="loginform-password"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => onInputChange(e)}
+            value={password}
+            className="form-input"
+          />
+        </div>
+        <div className="button-container">
+          <button type="submit" className="button">
+            Login
+          </button>
+        </div>
+      </form>
+      <p style={{ marginTop: '30px' }}>
+                  New member? Come, lets get started <Link to="/register">HERE!!</Link>
+                </p>
+    </div>
+  );
+}
+
+
+export default Loginforms;
