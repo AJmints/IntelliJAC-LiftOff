@@ -8,20 +8,20 @@ import jakarta.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Ratings {
+public class Rating {
 
     @Id
     @GeneratedValue
     private int id;
 
     @Column(name = "user_rating")
-    private String rating;
+    private int ratingInt;
 
-    public Ratings(String rating) {
-        this.rating = rating;
+    public Rating(int ratingInt) {
+        this.ratingInt = ratingInt;
     }
 
-    public Ratings() {
+    public Rating() {
 
     }
 
@@ -31,12 +31,12 @@ public class Ratings {
         return id;
     }
 
-    public String getRating() {
-        return rating;
+    public int getRating() {
+        return ratingInt;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setRating(int ratingInt) {
+        this.ratingInt = ratingInt;
     }
 
     //Hashcode and toEquals and toString
@@ -45,7 +45,7 @@ public class Ratings {
     @Override
     public String toString() {
         return "Ratings{" +
-                "rating=" + rating +
+                "rating=" + ratingInt +
                 '}';
     }
 
@@ -53,8 +53,8 @@ public class Ratings {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ratings ratings = (Ratings) o;
-        return id == ratings.id;
+        Rating rating = (Rating) o;
+        return id == rating.id;
     }
 
     @Override
