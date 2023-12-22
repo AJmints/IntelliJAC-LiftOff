@@ -1,23 +1,39 @@
 package com.intellijac.backend_intellijac.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class LoginDTO {
-    private String email;
+
+
+    private String employeename;
+
+
     private String password;
 
     public LoginDTO() {
     }
 
-    public LoginDTO(String email, String password) {
-        this.email = email;
+    public LoginDTO(String employeename, String password) {
+        this.employeename = employeename;
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+
+    public String getEmployeename() {
+        return employeename;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmployeename(String employeename) {
+        this.employeename = employeename;
     }
 
     public String getPassword() {

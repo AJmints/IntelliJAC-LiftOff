@@ -32,23 +32,23 @@ public class EmployeeIMPL implements EmployeeService {
     @Override
     public LoginMessage loginEmployee(LoginDTO loginDTO) {
         String msg = "";
-        Employee employee1 = employeeRepo.findByEmail(loginDTO.getEmail());
+        Employee employee1 = employeeRepo.findByEmployeename(loginDTO.getEmployeename());
         if (employee1 != null) {
             String password = loginDTO.getPassword();
             String encodedPassword = employee1.getPassword();
             Boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
             if (isPwdRight) {
-                Optional<Employee> employee = employeeRepo.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);
+                Optional<Employee> employee = employeeRepo.findOneByEmployeenameAndPassword(loginDTO.getEmployeename(), encodedPassword);
                 if (employee.isPresent()) {
                     return new LoginMessage("Login Success", true);
                 } else {
                     return new LoginMessage("Login Failed", false);
                 }
             } else {
-                return new LoginMessage("password Not Match", false);
+                return new LoginMessage("Password not Match", false);
             }
         }else {
-            return new LoginMessage("Email not exits", false);
+            return new LoginMessage("Username not exits", false);
         }
     }
 }

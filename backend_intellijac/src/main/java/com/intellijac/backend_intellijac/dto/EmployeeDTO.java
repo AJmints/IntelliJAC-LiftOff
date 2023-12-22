@@ -1,9 +1,21 @@
 package com.intellijac.backend_intellijac.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class EmployeeDTO {
+
+
     private int employeeid;
+
+
     private String employeename;
+
+
     private String email;
+
+
     private String password;
 
     public EmployeeDTO() {

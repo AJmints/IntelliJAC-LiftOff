@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public interface EmployeeRepo extends JpaRepository<Employee,Integer>
 {
-    Optional<Employee> findOneByEmailAndPassword(String email, String password);
-    Employee findByEmail(String email);
+    Optional<Employee> findOneByEmployeenameAndPassword(String employeename, String password);
+
+    Employee findByEmployeename(String employeename);
 }
