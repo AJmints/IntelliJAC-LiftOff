@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
+import { useParams } from "react-router-dom"; 
 
 function Flashcards () {
 
-    // Components to retrieva data from the backend
+    // Code to retrieve data from the database
     const [filledFlashcards, setFilledFlashcards] = useState([]);
-    
+
     useEffect(() => {
         loadFilledFlashcards();
     }, []);
@@ -15,8 +16,19 @@ function Flashcards () {
         const result = await axios.get("http://localhost:8080/flashcards/getFlashcards");
         setFilledFlashcards(result.data);
       };
+    
 
-    // Components to send data to the backend
+    // Code to delete flashcard
+    const { id } = useParams();
+
+    const deleteFlashcard = async (id) => {
+        await axios.delete(`http://localhost:8080/flashcards/flashcard/${id}`);
+        console.log("Button clicked");
+        loadFilledFlashcards();
+        }
+
+
+    // Code to send form data to the backend
     const [flashcard, setFlashcard] = useState({
         name: "",
         description: "",
@@ -31,9 +43,11 @@ function Flashcards () {
 
     const onSubmit = async (e) => {
         //e.preventDefault();
-        await axios.post("http://localhost:8080/flashcards/addFlashcard", flashcard);
+        await axios.post("http://localhost:8080/flashcards/flashcard", flashcard);
     };
 
+
+    // Page display 
     return (
         <div>
             <br></br>
@@ -76,7 +90,12 @@ function Flashcards () {
                            <td>{eachFlashcard.description}</td>
                            <td>
                                Edit
-                               Delete
+                               <button
+                                    className="btn btn-danger mx-2"
+                                    onClick={() => deleteFlashcard(eachFlashcard.id)}
+                                    >
+                                Delete
+                                </button>
                            </td>
                            </tr>     
                         ))}
