@@ -3,6 +3,8 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useParams } from "react-router-dom"; 
 
+// Added axios, bootstrap and react-router-dom
+
 function Flashcards () {
 
     // Code to retrieve data from the database
