@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
-import { useParams } from "react-router-dom"; 
+import { Link, useParams } from "react-router-dom"; 
 
 // Added axios, bootstrap and react-router-dom
 
@@ -91,7 +91,9 @@ function Flashcards () {
                            <td>{eachFlashcard.name}</td>
                            <td>{eachFlashcard.description}</td>
                            <td>
-                               Edit
+                               <Link className="btn btn-outline-primary mx-2" to="/editflashcard">
+                               Edit    
+                               </Link>
                                <button
                                     className="btn btn-danger mx-2"
                                     onClick={() => deleteFlashcard(eachFlashcard.id)}
