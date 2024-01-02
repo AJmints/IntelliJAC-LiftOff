@@ -31,9 +31,11 @@ public class FlashcardsController {
 
 
     @GetMapping("/flashcard/{id}")
-    Optional<Flashcard> getFlashCardById(@PathVariable Long id) {
-        return flashcardRepository.findById(id);
+    Flashcard getFlashCardById(@PathVariable Long id) {
+        return flashcardRepository.findById(id)
+                .orElseThrow();
     }
+
     @DeleteMapping("/flashcard/{id}")
     String deleteFlashcard(@PathVariable Long id){
         flashcardRepository.deleteById(id);

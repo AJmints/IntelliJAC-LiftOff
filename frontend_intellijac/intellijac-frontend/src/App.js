@@ -6,12 +6,13 @@ import Flashcards from './components/Flashcards';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EditFlashcards from './components/EditFlashcards.js';
 
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" element={<Flashcards/>}/>
+          <Route exact path="/flashcards" element={<Flashcards/>}/>
           <Route exact path="/editflashcard" element={<EditFlashcards/>}/>
         </Routes>
       </Router>
