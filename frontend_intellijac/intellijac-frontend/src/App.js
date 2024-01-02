@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/flashcards" element={<Flashcards/>}/>
           <Route exact path="/editflashcard" element={<EditFlashcards/>}/>
+          <Route exact path="/resources" element={<Resources/>}/>
         </Routes>
       </Router>
 
