@@ -16,7 +16,7 @@ const Buttons = () => {
         <h3>#################################</h3>
         <div style={{ marginRight: "15px" }}>
           <h1>Come back later!!</h1>
-          <Link to="/api" style={{ marginTop: "60px" }}>
+          <Link to="/" style={{ marginTop: "60px" }}>
             <h2>Bye-Bye!!</h2>
           </Link>
         </div>

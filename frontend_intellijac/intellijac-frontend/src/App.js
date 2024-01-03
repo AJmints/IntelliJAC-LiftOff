@@ -19,6 +19,8 @@ function App() {
                 <Route path="/Home" element={<Home />} />
         <Route path="/api/login" element={<LoginForm />} />
         <Route path="/api/register" element={<RegisterForm />} />
+        <Route path="/flashcards/addFlashcard" element={<Flashcards />} />
+
       </Routes>
     </Router>
   );
@@ -30,6 +32,7 @@ function Home() {
       <Header />
       <WelcomeContent />
       <Buttons />
+
     </>
   );
 }
