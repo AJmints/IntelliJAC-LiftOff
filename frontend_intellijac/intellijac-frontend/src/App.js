@@ -10,6 +10,8 @@ import Buttons from './components/Buttons.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginForm from './components/LoginForm.js';
 import RegisterForm from './components/RegisterForm.js';
+import ContactButton from './components/ContactButton.js';
+import ContactForm from './components/ContactForm.js';
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
                 <Route path="/Home" element={<Home />} />
         <Route path="/api/login" element={<LoginForm />} />
         <Route path="/api/register" element={<RegisterForm />} />
+        <Route path="/api/contact" element={<ContactForm />} />
         <Route path="/flashcards/addFlashcard" element={<Flashcards />} />
 
       </Routes>
@@ -32,6 +35,7 @@ function Home() {
       <Header />
       <WelcomeContent />
       <Buttons />
+      <ContactButton />
 
     </>
   );
