@@ -12,6 +12,8 @@ import LoginForm from './components/LoginForm.js';
 import RegisterForm from './components/RegisterForm.js';
 import ContactButton from './components/ContactButton.js';
 import ContactForm from './components/ContactForm.js';
+import TeamButton from './components/TeamButton.js';
+import TeamPage from './components/TeamPage.js';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path="/api/login" element={<LoginForm />} />
         <Route path="/api/register" element={<RegisterForm />} />
         <Route path="/api/contact" element={<ContactForm />} />
+        <Route path="/api/team" element={<TeamPage />} />
         <Route path="/flashcards/addFlashcard" element={<Flashcards />} />
 
       </Routes>
@@ -36,6 +39,7 @@ function Home() {
       <WelcomeContent />
       <Buttons />
       <ContactButton />
+      <TeamButton />
 
     </>
   );
