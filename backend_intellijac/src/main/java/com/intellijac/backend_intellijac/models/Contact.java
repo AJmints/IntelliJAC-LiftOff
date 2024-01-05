@@ -1,32 +1,34 @@
 package com.intellijac.backend_intellijac.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
-public class Flashcard {
-
+public class Contact {
     @Id
-    //@GeneratedValue (strategy = GenerationType.IDENTITY)
     @GeneratedValue
-    private Long id;
+    private int id;
 
-    // TODO: add validation
     private String name;
+
+    private String email;
     private String description;
 
-    public Flashcard(){}
+    public Contact() {}
 
-    public Flashcard(String name, String description) {
-        super();
+    public Contact(int id, String name, String email, String description) {
+        this.id = id;
         this.name = name;
+        this.email = email;
         this.description = description;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -36,6 +38,14 @@ public class Flashcard {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDescription() {
