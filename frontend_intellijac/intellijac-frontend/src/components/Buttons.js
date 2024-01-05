@@ -9,14 +9,16 @@ const Buttons = () => {
         <div style={{ marginRight: "15px" }}>
           <h1>Here we go!!..</h1>
 
-          <Link to="/api/login" style={{ marginBottom: "30px" }}>
+          <Link to="/api/login" style={{ marginBottom: "50px", textAlign: "center"}}>
             <h2>Login Here!!</h2>
           </Link>
         </div>
-        <h3>#################################</h3>
-        <div style={{ marginRight: "15px" }}>
+        <br />
+        <h3 style={{textAlign: "center"}}>#################################</h3>
+        <br />
+        <div style={{ marginRight: "15px", marginTop: "-20px"}}>
           <h1>Come back later!!</h1>
-          <Link to="/" style={{ marginTop: "60px" }}>
+          <Link to="/" style={{ marginTop: "60px", textAlign: "center"}}>
             <h2>Bye-Bye!!</h2>
           </Link>
         </div>
