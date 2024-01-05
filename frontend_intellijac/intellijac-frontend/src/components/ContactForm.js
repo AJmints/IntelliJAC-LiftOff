@@ -139,6 +139,7 @@ function ContactForms() {
           </button>
         </div>
       </form>
+      <Link to="/">Go to HomePage</Link>
     </div>
   );
 }

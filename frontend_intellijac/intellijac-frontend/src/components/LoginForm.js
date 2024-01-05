@@ -120,9 +120,10 @@ function Loginforms() {
           </button>
         </div>
       </form>
-      <p style={{ marginTop: '30px' }}>
+      <p style={{ marginTop: '30px', marginBottom: '30px' }}>
         New member? Come, let's get started <Link to="/api/register">HERE!!</Link>
       </p>
+      <Link to="/">Go to HomePage</Link>
     </div>
   );
 }
