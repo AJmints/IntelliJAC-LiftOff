@@ -2,74 +2,149 @@ import React, { useState } from 'react';
 import '../styles/QuizPage.css';
 
 const QuizPage = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [operand1, setOperand1] = useState(0);
   const [operand2, setOperand2] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [selectedOperationType, setSelectedOperationType] = useState('');
 
   const calculateGrade = () => {
-    const percentageCorrect = (correctAnswers / 10) * 100; 
-    return percentageCorrect; 
+    const percentageCorrect = (correctAnswers / 10) * 100;
+    return percentageCorrect;
   };
 
   const generateProblem = () => {
     if (currentQuestion <= 10) {
       const newOperand1 = Math.floor(Math.random() * 10) + 1;
       const newOperand2 = Math.floor(Math.random() * 10) + 1;
-      setOperand1(newOperand1);
-      setOperand2(newOperand2);
+  
+      switch (selectedOperationType) {
+        case 'addition':
+          setOperand1(newOperand1);
+          setOperand2(newOperand2);
+          break;
+        case 'subtraction':
+          setOperand1(newOperand1 + newOperand2);
+          setOperand2(newOperand2);
+          break;
+        case 'multiplication':
+          setOperand1(newOperand1);
+          setOperand2(newOperand2);
+          break;
+        case 'division':
+          setOperand1(Math.max(newOperand1, newOperand2));
+          setOperand2(Math.min(newOperand1, newOperand2));
+          break;
+        default:
+          setOperand1(newOperand1);
+          setOperand2(newOperand2);
+      }
+  
       setUserAnswer('');
       setIsCorrect(null);
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    } else {
+      setCurrentQuestion(11); 
     }
   };
+
   const checkAnswer = () => {
-    const correctAnswer = operand1 + operand2;
-    const userEnteredAnswer = parseInt(userAnswer, 10);
-  
+    let correctAnswer;
+
+    switch (selectedOperationType) {
+      case 'addition':
+        correctAnswer = operand1 + operand2;
+        break;
+      case 'subtraction':
+        correctAnswer = operand1 - operand2;
+        break;
+      case 'multiplication':
+        correctAnswer = operand1 * operand2;
+        break;
+      case 'division':
+        correctAnswer = operand1 / operand2;
+        break;
+      default:
+        correctAnswer = operand1 + operand2;
+    }
+
+    const userEnteredAnswer = parseFloat(userAnswer);
+
     if (!isNaN(userEnteredAnswer) && userEnteredAnswer === correctAnswer) {
       setIsCorrect(true);
       setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
     } else {
       setIsCorrect(false);
     }
+
+    generateProblem();
   };
-  
+
+  const restartQuiz = () => {
+    setCurrentQuestion(0);
+    setCorrectAnswers(0);
+    setSelectedOperationType('');
+  };
 
   return (
     <div className='quiz-page'>
-      {currentQuestion <= 10 ? (
+      {currentQuestion === 0 ? (
+        <div>
+          <label>Select Operation Type:</label>
+          <select value={selectedOperationType} onChange={(e) => setSelectedOperationType(e.target.value)}>
+            <option value=''>Select Type</option>
+            <option value='addition'>Addition</option>
+            <option value='subtraction'>Subtraction</option>
+            <option value='multiplication'>Multiplication</option>
+            <option value='division'>Division</option>
+          </select>
+          <button onClick={() => setCurrentQuestion(1)}>Start Quiz</button>
+        </div>
+      ) : (
         <>
           <h1>Math Quiz</h1>
-          <p>
-            Question {currentQuestion}:
-            <br />
-            {operand1} + {operand2} =
-          </p>
-          <input
-            type="text"
-            value={userAnswer}
-            onChange={(e) => setUserAnswer(e.target.value)}
-            placeholder="Your Answer"
-          />
-          <button onClick={checkAnswer}>Submit Answer</button>
-          <button onClick={generateProblem}>Next Problem</button>
-  
-          {isCorrect === true && <p style={{ color: 'green' }}>Correct! 🎉</p>}
-          {isCorrect === false && <p style={{ color: 'red' }}>Incorrect. Try again! ❌</p>}
+          {currentQuestion <= 10 && (
+            <>
+              <p>
+                Question {currentQuestion}:
+                <br />
+                {operand1}{' '}
+                {selectedOperationType === 'division'
+                  ? '÷'
+                  : selectedOperationType === 'multiplication'
+                  ? '×'
+                  : selectedOperationType === 'subtraction'
+                  ? '-'
+                  : '+'}{' '}
+                {operand2} =
+              </p>
+              <input
+                type='text'
+                value={userAnswer}
+                onChange={(e) => setUserAnswer(e.target.value)}
+                placeholder='Your Answer'
+              />
+              <button onClick={checkAnswer}>Submit Answer</button>
+              <button onClick={generateProblem}>Next Problem</button>
+
+              {isCorrect === true && <p style={{ color: 'green' }}>Correct! 🎉</p>}
+              {isCorrect === false && <p style={{ color: 'red' }}>Incorrect. Try again! ❌</p>}
+            </>
+          )}
+
+          {currentQuestion > 10 && (
+            <div>
+              <p>Quiz completed! You answered all 10 questions.</p>
+              <p>Your grade: {calculateGrade()}%</p>
+              <button onClick={restartQuiz}>Try Another Quiz</button>
+            </div>
+          )}
         </>
-      ) : (
-        <div>
-          <p>Quiz completed! You answered all 10 questions.</p>
-          <p>Your grade: {calculateGrade()}%</p>
-        </div>
       )}
     </div>
   );
-  
 };
 
 export default QuizPage;
-
