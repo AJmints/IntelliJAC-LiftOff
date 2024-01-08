@@ -42,4 +42,16 @@ public class FlashcardsController {
         return "Flashcard deleted";
     }
 
+    //For users to update their flashcards:
+
+    @PutMapping("/flashcard/{id}")
+    Flashcard updateFlashcard(@RequestBody Flashcard newFlashcard, @PathVariable Long id) {
+        return flashcardRepository.findById(id)
+                .map(flashcard -> {
+                    flashcard.setName(newFlashcard.getName());
+                    flashcard.setDescription(newFlashcard.getDescription());
+                    return flashcardRepository.save(flashcard);
+                }).orElseThrow();
+    }
+
 }
