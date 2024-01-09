@@ -5,10 +5,12 @@ function ChangeStyles (){
     
     const [style, setStyle] = useState("light");
     
-    const changeBackground = () => {
-        if (style == "grey" || style == "blue") setStyle("light");
-        else if (style == "blue" || style == "light") setStyle("grey");
-        else setStyle("blue");
+    // const changeBackground = () => {
+    //     if (style !== "light") setStyle("light");
+    //     else setStyle("dark");
+    // }
+    const darkBackground = () => {
+        setStyle("dark");
     }
 
     return (
@@ -19,7 +21,7 @@ function ChangeStyles (){
             </h3>
             <button
                 className="button"
-                onClick={changeBackground}
+                onClick={darkBackground}
             >
                 Click me!
             </button>

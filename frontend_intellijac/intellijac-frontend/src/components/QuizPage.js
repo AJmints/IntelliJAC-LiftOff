@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const QuizPage = () => {
 
   // Added code to change background
-  const [style, setStyle] = useState("light");
+        const [style, setStyle] = useState("light");
 
       const changeBackground = () => {
           if (style == "grey" || style == "blue") setStyle("light");
@@ -103,7 +103,7 @@ const QuizPage = () => {
   return (
     <div className='quiz-page'>
       {currentQuestion === 0 ? (
-        <div>
+        <div className={style}>
           <label>Select Operation Type:</label>
           <select value={selectedOperationType} onChange={(e) => setSelectedOperationType(e.target.value)}>
             <option value=''>Select Type</option>
@@ -122,6 +122,12 @@ const QuizPage = () => {
           <br></br>
           <Link to={"/rating"}>Rate our page</Link>
           <br></br>
+          <button
+                className="button"
+                onClick={changeBackground}
+            >
+                Change background!
+            </button>
         </div>
       ) : (
         <>
