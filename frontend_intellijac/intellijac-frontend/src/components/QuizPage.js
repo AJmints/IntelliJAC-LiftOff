@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import '../styles/QuizPage.css';
+import { Link } from "react-router-dom"; 
 
 const QuizPage = () => {
+
+  // Added code to change background
+  const [style, setStyle] = useState("light");
+
+      const changeBackground = () => {
+          if (style == "grey" || style == "blue") setStyle("light");
+          else if (style == "blue" || style == "light") setStyle("grey");
+          else setStyle("blue");
+      }
+
+  // ***
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [operand1, setOperand1] = useState(0);
   const [operand2, setOperand2] = useState(0);
@@ -101,6 +113,15 @@ const QuizPage = () => {
             <option value='division'>Division</option>
           </select>
           <button onClick={() => setCurrentQuestion(1)}>Start Quiz</button>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Link to={"/flashcards/addFlashcard"}>Flashcards</Link>
+          <br></br>
+          <Link to={"/resources"}>Resources</Link>
+          <br></br>
+          <Link to={"/rating"}>Rate our page</Link>
+          <br></br>
         </div>
       ) : (
         <>
