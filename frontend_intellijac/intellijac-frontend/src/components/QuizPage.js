@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/QuizPage.css';
+import { Link } from "react-router-dom"; 
 
 const QuizPage = () => {
 
@@ -112,6 +113,15 @@ const QuizPage = () => {
             <option value='division'>Division</option>
           </select>
           <button onClick={() => setCurrentQuestion(1)}>Start Quiz</button>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Link to={"/flashcards/addFlashcard"}>Flashcards</Link>
+          <br></br>
+          <Link to={"/resources"}>Resources</Link>
+          <br></br>
+          <Link to={"/rating"}>Rate our page</Link>
+          <br></br>
         </div>
       ) : (
         <>
