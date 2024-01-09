@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 import '../styles/QuizPage.css';
 
 const QuizPage = () => {
+
+  // Added code to change background
+  const [style, setStyle] = useState("light");
+
+      const changeBackground = () => {
+          if (style == "grey" || style == "blue") setStyle("light");
+          else if (style == "blue" || style == "light") setStyle("grey");
+          else setStyle("blue");
+      }
+
+  // ***
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [operand1, setOperand1] = useState(0);
   const [operand2, setOperand2] = useState(0);
