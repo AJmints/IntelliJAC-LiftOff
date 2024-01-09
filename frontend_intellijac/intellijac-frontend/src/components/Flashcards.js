@@ -91,7 +91,7 @@ function Flashcards () {
                            <td>{eachFlashcard.name}</td>
                            <td>{eachFlashcard.description}</td>
                            <td>
-                               <Link className="btn btn-outline-primary mx-2" to="/editflashcard">
+                               <Link className="btn btn-outline-primary mx-2" to={`/editflashcard/${eachFlashcard.id}`}>
                                Edit    
                                </Link>
                                <button

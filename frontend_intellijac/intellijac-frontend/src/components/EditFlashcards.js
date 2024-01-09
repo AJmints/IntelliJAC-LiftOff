@@ -52,6 +52,9 @@ function EditFlashcards() {
                 </div>
                 <button type="submit"> Edit your flashcard!</button>
             </form>
+            <Link className="btn btn-outline-primary mx-2" to="/flashcards">
+              Back to Flashcard list!    
+              </Link>
         </div>
 
     // {/* // return (

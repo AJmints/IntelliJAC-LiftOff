@@ -1,5 +1,6 @@
 package com.intellijac.backend_intellijac.controllers;
 
+import com.intellijac.backend_intellijac.exception.FlashcardNotFoundException;
 import com.intellijac.backend_intellijac.models.Flashcard;
 import com.intellijac.backend_intellijac.repository.FlashcardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class FlashcardsController {
     @GetMapping("/flashcard/{id}")
     Flashcard getFlashCardById(@PathVariable Long id) {
         return flashcardRepository.findById(id)
-                .orElseThrow();
+                .orElseThrow(()->new FlashcardNotFoundException(id));
     }
 
     @DeleteMapping("/flashcard/{id}")
@@ -51,7 +52,7 @@ public class FlashcardsController {
                     flashcard.setName(newFlashcard.getName());
                     flashcard.setDescription(newFlashcard.getDescription());
                     return flashcardRepository.save(flashcard);
-                }).orElseThrow();
+                }).orElseThrow(()->new FlashcardNotFoundException(id));
     }
 
 }
