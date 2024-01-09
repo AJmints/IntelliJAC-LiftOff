@@ -128,7 +128,7 @@ function ContactForms() {
             onChange={(e) => onInputChange(e)}
             value={description}
             className="form-input"
-            style={{ marginRight: '-30px' }}
+            style={{ marginLeft: '90px' }}
           />
           <div className="error-message"  style={{ marginBottom: '20px', marginLeft: '10px'}}>{errors.description}</div>
         </div>
