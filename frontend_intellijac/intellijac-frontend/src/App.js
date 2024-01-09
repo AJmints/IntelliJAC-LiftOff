@@ -35,8 +35,9 @@ function App() {
         <Route path="/api/team" element={<TeamPage />} />
         <Route path="/flashcards/addFlashcard" element={<Flashcards />} />
            <Route exact path="/flashcards" element={<Flashcards/>}/>
-          <Route exact path="/editflashcard" element={<EditFlashcards/>}/>
+          <Route path="/editflashcard/:id" element={<EditFlashcards/>}/>
           <Route exact path="/resources" element={<Resources/>}/>
+          <Route exact path="/rating" element={<Ratings/>}/>
 
       </Routes>
     </Router>
@@ -58,4 +59,3 @@ function Home() {
 }
 
 export default App;
-
