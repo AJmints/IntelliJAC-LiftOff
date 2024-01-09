@@ -68,7 +68,7 @@ function Loginforms() {
         setErrors({ ...errors, employeename: 'Username not exists' });
       } else if (response.data.message === 'Login Success') {
         alert('Login Success');
-        navigate('/');
+        navigate('/quiz');
       } else {
         setErrors({ ...errors, password: response.data.message });
       }
