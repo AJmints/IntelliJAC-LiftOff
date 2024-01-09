@@ -18,7 +18,6 @@ import TeamButton from './components/TeamButton.js';
 import TeamPage from './components/TeamPage.js';
 
 import Resources from './components/Resources.js';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EditFlashcards from './components/EditFlashcards.js';
 
 
@@ -35,8 +34,9 @@ function App() {
         <Route path="/api/team" element={<TeamPage />} />
         <Route path="/flashcards/addFlashcard" element={<Flashcards />} />
            <Route exact path="/flashcards" element={<Flashcards/>}/>
-          <Route exact path="/editflashcard" element={<EditFlashcards/>}/>
+          <Route path="/editflashcard/:id" element={<EditFlashcards/>}/>
           <Route exact path="/resources" element={<Resources/>}/>
+          <Route exact path="/rating" element={<Ratings/>}/>
 
       </Routes>
     </Router>
@@ -58,4 +58,3 @@ function Home() {
 }
 
 export default App;
-
