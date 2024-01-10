@@ -274,7 +274,7 @@ const QuizPage = () => {
     <div className={`quiz-page ${style}`}>
       {currentQuestion === 0 ? (
         <div className="start-quiz-container">
-        <p style={{textAlign: "center", fontSize: "40px", color: "Green"}}> Are You Ready??  Let's Begin!!</p>
+        <p style={{textAlign: "center", fontSize: "40px", color: "Green"}}> <u>Are You Ready??  Let's Begin!!</u></p>
           <label>Your Options: </label>
           <select
             value={selectedOperationType}
