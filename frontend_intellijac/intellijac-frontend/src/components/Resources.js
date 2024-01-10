@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './Resources.css';
+import '../styles/QuizPage.css';
 import { Link } from 'react-router-dom';
 import { ResourcesList } from './resourceslist';
 
@@ -11,26 +12,31 @@ const [query, setQuery] = useState("");
 
 // Display page with imported list of resources from file
 return(
-    <div className="app">
-        <h1>Extra resources</h1>
+    <div style= {{ backgroundColor: "#EFBC65"}}>
+        <h1 style= {{ fontSize: "50px", marginLeft: "200px", color: "red"}}><u>Resources</u></h1>
+        <br />
+
+        <p style= {{ fontSize: "30px", marginLeft: "500px"}}>Here are few resources to learn more on math!!</p>
         <br></br>
-        <h3>Search through these resources to learn more about math!</h3>
+        <input type="text" placeholder="Search..." className="search" style= {{marginLeft: "700px", textAlign: "center"}} onChange={(e) => setQuery(e.target.value)}/>
         <br></br>
-        <input type="text" placeholder="Search..." className="search" onChange={(e) => setQuery(e.target.value)}/>
-        <br></br>
-        <ul className="list">
+        <br />
+
+        <ul className="list" style= {{marginLeft: "200px"}}>
             {ResourcesList.filter((resource) => resource.name.toLowerCase().includes(query)).map((resource) => (
                 <li key={resource.id} className="listItem"><a href={`${resource.url}`}>{resource.name}</a></li>
             ))}
         </ul>
         <br />
         <br />
-        <Link to={"/flashcards/addFlashcard"} style={{ marginRight: "700px" }}>
+        <Link to={"/flashcards/addFlashcard"} style={{ marginRight: "700px", color: "#5BA4BB" }}>
           Go to Flashcards
         </Link>
+        <br />
 
-        <Link to={"/quiz"} style={{ marginRight: "710px" }}>Go to QuizPage</Link>
-        <Link to={"/"} style={{ marginRight: "700px" }}>Go to HomePage</Link>
+        <Link to={"/quiz"} style={{ marginRight: "500px", color: "#5BA4BB" }}>Go to QuizPage</Link>
+<br />
+        <Link to={"/"} style={{ marginRight: "700px", color: "#5BA4BB" }}>Go to HomePage</Link>
     </div>
 
 )
