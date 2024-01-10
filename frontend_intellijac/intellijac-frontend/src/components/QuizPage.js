@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 
 const QuizPage = () => {
 
-  // Added code to change background
+  // Added code here and on lines 125- to change background
         const [style, setStyle] = useState("light");
 
-      const changeBackground = () => {
-          if (style == "grey" || style == "blue") setStyle("light");
-          else if (style == "blue" || style == "light") setStyle("grey");
-          else setStyle("blue");
-      }
+        const darkBackground = () => {
+          setStyle("dark");
+         }
+        const lightBackground = () => {
+          setStyle("light");
+        }
+        const blueBackground = () => {
+          setStyle("blue");
+        }
+      
 
   // ***
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -122,12 +127,13 @@ const QuizPage = () => {
           <br></br>
           <Link to={"/rating"}>Rate our page</Link>
           <br></br>
-          <button
-                className="button"
-                onClick={changeBackground}
-            >
-                Change background!
-            </button>
+          <br></br>
+            <h6 className={style}>
+                Click button to change style
+            </h6>
+            <button onClick={lightBackground}>Light</button>
+            <button onClick={darkBackground}>Dark</button>
+            <button onClick={blueBackground}>Blue</button>
         </div>
       ) : (
         <>
