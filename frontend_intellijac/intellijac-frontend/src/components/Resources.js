@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './Resources.css';
+import { Link } from 'react-router-dom';
 import { ResourcesList } from './resourceslist';
 
 function Resources (){
@@ -22,6 +23,14 @@ return(
                 <li key={resource.id} className="listItem"><a href={`${resource.url}`}>{resource.name}</a></li>
             ))}
         </ul>
+        <br />
+        <br />
+        <Link to={"/flashcards/addFlashcard"} style={{ marginRight: "700px" }}>
+          Go to Flashcards
+        </Link>
+
+        <Link to={"/quiz"} style={{ marginRight: "710px" }}>Go to QuizPage</Link>
+        <Link to={"/"} style={{ marginRight: "700px" }}>Go to HomePage</Link>
     </div>
 
 )

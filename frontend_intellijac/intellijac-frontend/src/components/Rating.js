@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './Rating.css';
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Ratings() {   
       
@@ -43,6 +44,8 @@ function Ratings() {
                 })}
                 
                 <h4> Your rating is {rating}.</h4>
+                <br />
+                <Link to="/">Go to HomePage</Link>
             </div>
 
         //</body>     

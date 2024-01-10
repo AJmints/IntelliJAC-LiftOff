@@ -107,7 +107,14 @@ function Flashcards () {
                 </table>
                 </div>
             </div>
-        </div>
+
+            <Link to={"/quiz"}>Go to QuizPage</Link>
+            <br />
+            <Link to={"/resources"}>Go to Resources</Link>
+            <br />
+            <Link to="/">Go to HomePage</Link>
+            </div>
+
     );
 
 }
