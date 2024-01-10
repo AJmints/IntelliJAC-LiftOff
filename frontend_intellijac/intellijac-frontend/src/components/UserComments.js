@@ -12,15 +12,15 @@ function UserComments () {
         <div>
             <br></br>
             <br></br>
-            <h1>Please add comments about the app!</h1>
+            <h1>Please tell us about the app!</h1>
             <form>
                 <div>
-                    <label>Your comment:</label>
+                    <label> Your comment: </label>
                 </div>
-                <div>
-                    <input type="text" id="comment-text" name="name" placeholder="Your comment"/>
+                <div>                    
+                    <textarea className="form-control" id="comment-text" name="name" placeholder="What do you think about our app?" rows={"6"}/>
                 </div>
-                <button type="submit">Save your comment!</button>
+                <button className="btn btn-outline-primary mx-2" type="submit">Save your comment!</button>
             </form>
         </div>
 

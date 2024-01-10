@@ -21,6 +21,7 @@ import Resources from './components/Resources.js';
 
 import EditFlashcards from './components/EditFlashcards.js';
 import QuizPage from './components/QuizPage.js';
+import UserComments from './components/UserComments';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/resources" element={<Resources/>}/>
           <Route exact path="/rating" element={<Ratings/>}/>
           <Route exact path="/quiz" element={<QuizPage/>}/>
+          <Route exact path="/userComment" element={<UserComments/>}/>
 
 
       </Routes>
