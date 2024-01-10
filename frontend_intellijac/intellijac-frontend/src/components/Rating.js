@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './Rating.css';
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom"; 
 
 function Ratings() {   
       
@@ -25,6 +26,7 @@ function Ratings() {
         //<body>
             <div>
                 <h1>Please rate our website!</h1>
+                <br></br>
                 {/* mapped over 5 items using an empty array */}
                 {/* added iterator i as another argument/parameter to assign each star a number. i+1 b/c arrays starts at 0 and we want 1 to start */}
                 {[...Array(5)].map((star, i) => { 
@@ -38,11 +40,20 @@ function Ratings() {
                         <input type="radio" name="rating" value={ratingNumber} onClick={(handleclick) => setRating(ratingNumber)} onChange={(e)=>handleclick(e)}></input> 
                         {/* set colors of stars with ternary operator*/}
                         <FaStar className="star" size={50} color={ratingNumber <= rating ? "#ffa500" : "#808080"}/>
-                    </label>
-                    );  
+                    </label>                    
+                    );                      
                 })}
-                
+            
+                <br></br>
+                <br></br>
                 <h4> Your rating is {rating}.</h4>
+
+                {/* added link to comment box */}
+                <br></br>
+                <Link className="btn btn-outline-primary mx-2" to={"/userComment/"}>
+                    Please leave comments about our app    
+                </Link>
+
             </div>
 
         //</body>     
