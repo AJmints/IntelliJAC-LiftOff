@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './Resources.css';
-import '../styles/QuizPage.css';
 import { Link } from 'react-router-dom';
 import { ResourcesList } from './resourceslist';
 
@@ -13,16 +12,16 @@ const [query, setQuery] = useState("");
 // Display page with imported list of resources from file
 return(
     <div style= {{ backgroundColor: "#EFBC65"}}>
-        <h1 style= {{ fontSize: "50px", marginLeft: "200px", color: "red"}}><u>Resources</u></h1>
+        <h1 style= {{ fontSize: "50px", marginLeft: "80px", color: "red"}}><u>Resources</u></h1>
         <br />
 
-        <p style= {{ fontSize: "30px", marginLeft: "500px"}}>Here are few resources to learn more on math!!</p>
+        <p style= {{ fontSize: "30px", marginLeft: "470px"}}>Here are few resources to learn more on math!!</p>
         <br></br>
-        <input type="text" placeholder="Search..." className="search" style= {{marginLeft: "700px", textAlign: "center"}} onChange={(e) => setQuery(e.target.value)}/>
+        <input type="text" placeholder="Search..." className="search" style= {{marginLeft: "670px", textAlign: "center"}} onChange={(e) => setQuery(e.target.value)}/>
         <br></br>
         <br />
 
-        <ul className="list" style= {{marginLeft: "200px"}}>
+        <ul className="list" style= {{marginLeft: "100px"}}>
             {ResourcesList.filter((resource) => resource.name.toLowerCase().includes(query)).map((resource) => (
                 <li key={resource.id} className="listItem"><a href={`${resource.url}`}>{resource.name}</a></li>
             ))}

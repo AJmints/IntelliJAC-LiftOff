@@ -182,7 +182,7 @@ const QuizPage = () => {
                                       <br />
                                       <Link to="/" style= {{ color: "skyblue"}}>Go to HomePage</Link>
                                       <br />
-                                      <Link to={"/rating"} style= {{ color: "skyblue"}}>Rate our page</Link>
+
 
 
                           </div>

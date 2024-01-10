@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import '../styles/QuizPage.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link, useParams } from "react-router-dom"; 
 
@@ -53,7 +52,7 @@ function Flashcards () {
     // Page display 
     return (
     <div>
-        <div style= {{backgroundColor: "#FFCAC7"}}>
+        <div style= {{backgroundColor: "#E5D3B3"}}>
             <br></br>
             <br></br>
             <h1 style= {{ fontSize: "50px", color: "orange"}}><u>Create Your Own Math Flashcards!!</u></h1>
