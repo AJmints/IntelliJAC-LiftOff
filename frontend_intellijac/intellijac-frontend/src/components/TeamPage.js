@@ -21,8 +21,9 @@ const TeamPage = () => {
         <h2>Jose Pablo Barragan</h2>
         <h4>Role: Full Stack Developer</h4>
         <p>Email: jp@launchcode.com</p>
-
-        <img className="developer-image" src={require('./images/JP.png')} alt="Jose Pablo Barragan" />
+<br />
+<br />
+        <img className="developer-image" src={require('./images/JP.png')} alt="Jose Pablo Barragan" style={{marginBottom: "5px", marginTop: "-5px"}} />
     </div>
 
     <div className="developer-card">
