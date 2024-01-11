@@ -18,7 +18,7 @@ const Buttons = () => {
         <br />
         <div style={{ marginRight: "15px", marginTop: "-20px"}}>
           <h1>Come back later!!</h1>
-          <Link to="/" style={{ marginTop: "60px", textAlign: "center"}}>
+          <Link to="/rating" style={{ marginTop: "60px", textAlign: "center"}}>
             <h2>Bye-Bye!!</h2>
           </Link>
         </div>

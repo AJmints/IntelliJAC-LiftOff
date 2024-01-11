@@ -51,28 +51,35 @@ function Flashcards () {
 
     // Page display 
     return (
-        <div>
+    <div>
+        <div style= {{backgroundColor: "#E5D3B3"}}>
             <br></br>
             <br></br>
-            <h1>Create your own math flashcards!</h1>
+            <h1 style= {{ fontSize: "50px", color: "orange"}}><u>Create Your Own Math Flashcards!!</u></h1>
+            <br />
+            <br />
             <form onSubmit={(e) => onSubmit(e)}> 
-                <div>
-                <label for="flashcard-name"> Your question</label>
+                <div style= {{textAlign: "center", fontSize: "30px"}}>
+                <label for="flashcard-name"> Your question:</label>
                 </div>
                 <div>
-                <input type="text" id="flashcard-name" name="name" placeholder="Your flashcard's title" onChange={(e) => onInputChange(e)} value={name}/>
+                <input type="text" id="flashcard-name" name="name" placeholder="Your flashcard's title" style= {{ marginLeft: "625px", fontSize: "20px", textAlign: "center" }}onChange={(e) => onInputChange(e)} value={name}/>
+                </div>
+                <br />
+
+                <div style= {{textAlign: "center", fontSize: "30px"}}>
+                <label for="flashcard-description"> Your answer:</label>
                 </div>
                 <div>
-                <label for="flashcard-description"> Your answer</label>
+                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" style= {{ marginLeft: "625px", fontSize: "20px", textAlign: "center" }}onChange={(e) => onInputChange(e)} value={description}/>
                 </div>
-                <div>
-                <textarea type="text" id="flashcard-description" name="description" placeholder="Your flascard's text" onChange={(e) => onInputChange(e)} value={description}/>
-                </div>
-                <button type="submit"> Save your flashcard!</button>
+                <br />
+                <button style= {{marginLeft: "660px", fontSize: "20px", color: "purple"}} type="submit"> Save your flashcard!</button>
             </form>
             <br></br>
             <br></br>
-            <h1>Check your math flashcards!</h1>
+            <br />
+            <h1 style= {{ color: "skyblue"}}><u>Check Your Math Flashcards!!</u></h1>
             <div className="container">
                 <div className="py-4">
                 <table className="table border shadow">
@@ -107,7 +114,16 @@ function Flashcards () {
                 </table>
                 </div>
             </div>
-        </div>
+
+
+            <Link to={"/quiz"} style= {{ color: "blue"}}>Go to QuizPage</Link>
+<br />
+            <Link to={"/resources"} style= {{ color: "blue"}}>Go to Resources</Link>
+<br />
+            <Link to="/" style= {{ color: "blue"}}>Go to HomePage</Link>
+            </div>
+            </div>
+
     );
 
 }
