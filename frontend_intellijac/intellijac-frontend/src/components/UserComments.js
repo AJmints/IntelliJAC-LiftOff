@@ -16,16 +16,12 @@ function UserComments () {
 
     const onInputChange = (e) => {
         setUserComment({...userComment, [e.target.name]: e.target.value});
-        // const userComments=e.target.value;
-        // setUserComment({...userComment, userComments});
     };
 
 
     const onSubmit = async (e) => {
         await axios.post("http://localhost:8080/comments/add", userComment);
-    };
-
-    //Page display
+    };    
 
     return (
         <div>
@@ -45,7 +41,7 @@ function UserComments () {
                 <div>                    
                     <textarea type="text" className="form-control" id="userComment-comment" name="comment" placeholder="What do you think about our app?" rows={"6"} onChange={(e) => onInputChange(e)} value={comment}/>
                 </div>
-                <button className="btn btn-outline-primary mx-2" type="submit">Save your comment!</button>
+                <button className="btn btn-outline-primary mx-2" type="submit" onClick={() => alert("Thanks for your comment!")}>Save your comment!</button>
             </form>
         </div>
 
