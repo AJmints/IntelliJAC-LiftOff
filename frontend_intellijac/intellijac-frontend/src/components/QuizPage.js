@@ -121,14 +121,7 @@ const QuizPage = () => {
           </select>
           <button onClick={() => setCurrentQuestion(1)} style={{ color:"red"}}>Start Quiz</button>
           <br />
-          <br />
-          <br />
-          <Link to={"/flashcards/addFlashcard"}>Flashcards</Link>
-          <br></br>
-          <Link to={"/resources"}>Resources</Link>
-          <br></br>
-          <Link to={"/rating"}>Rate our page</Link>
-          <br></br>
+
           <br></br>
             <h6>
                 Click button to change style
@@ -162,22 +155,22 @@ const QuizPage = () => {
                 value={userAnswer}
                 onChange={(e) => setUserAnswer(e.target.value)}
                 placeholder='Your Answer'
-                style={{ marginLeft: "620px", textAlign: "center"}}
+                style={{ marginLeft: "30px", textAlign: "center"}}
               />
               <br />
               <br />
-              <button onClick={checkAnswer} style={{ marginLeft: "660px"}}>Submit Answer</button>
+              <button onClick={checkAnswer} style={{ marginLeft: "30px"}}>Submit Answer</button>
               <br />
               <br />
-              <button onClick={generateProblem} style={{ marginLeft: "665px"}}>Next Problem</button>
+              <button onClick={generateProblem} style={{ marginLeft: "35px"}}>Next Problem</button>
               <br />
               <br />
 
               {isCorrect === true && (
-                <p className="correct-answer" style={{ marginLeft: "580px", fontSize: "30px"}}>Hurray, You got it right!! 🎉</p>
+                <p className="correct-answer" style={{ marginLeft: "50px", fontSize: "30px"}}>Hurray, You got it right!! 🎉</p>
               )}
               {isCorrect === false && (
-                <p className="incorrect-answer" style={{ marginLeft: "580px", fontSize: "30px"}}>Oh noo!! Try again! ❌</p>
+                <p className="incorrect-answer" style={{ marginLeft: "50px", fontSize: "30px"}}>Oh noo!! Try again! ❌</p>
               )}
             </>
           )}
