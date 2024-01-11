@@ -14,18 +14,30 @@ public class UserComment {
     @GeneratedValue
     private Long id;
 
+    @Column(name = "user_name")
+    private String name;
+
     @Column(name = "user_comment")
     private String comment;
 
     public UserComment(){}
 
-    public UserComment(String comment) {
+    public UserComment(String name, String comment) {
         super();
+        this.name = name;
         this.comment = comment;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getComment() {
@@ -40,7 +52,8 @@ public class UserComment {
     @Override
     public String toString() {
         return "UserComment{" +
-                "comment='" + comment + '\'' +
+                "name='" + name + '\'' +
+                ", comment='" + comment + '\'' +
                 '}';
     }
 
