@@ -3,13 +3,20 @@ import '../styles/QuizPage.css';
 import { Link } from 'react-router-dom';
 
 const QuizPage = () => {
-  const [style, setStyle] = useState("light");
 
-  const changeBackground = () => {
-    if (style === "grey" || style === "blue") setStyle("light");
-    else if (style === "blue" || style === "light") setStyle("grey");
-    else setStyle("blue");
-  }
+  // Added code here and on lines 125- to change background
+        const [style, setStyle] = useState();
+
+        const darkBackground = () => {
+          setStyle("start-quiz-container-grey");
+         }
+        const lightBackground = () => {
+          setStyle("start-quiz-container-light");
+        }
+        const blueBackground = () => {
+          setStyle("start-quiz-container-blue");
+        }
+     
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [operand1, setOperand1] = useState(0);
@@ -100,13 +107,12 @@ const QuizPage = () => {
   return (
     <div className={`quiz-page ${style}`}>
       {currentQuestion === 0 ? (
-        <div className="start-quiz-container">
+        <div className={style}>
         <p style={{textAlign: "center", fontSize: "40px", color: "Green"}}> <u>Are You Ready??  Let's Begin!!</u></p>
           <label>Your Options: </label>
           <select
             value={selectedOperationType}
-            onChange={(e) => setSelectedOperationType(e.target.value)}
-          >
+            onChange={(e) => setSelectedOperationType(e.target.value)}>
             <option value=''>Select Type</option>
             <option value='addition'>Addition</option>
             <option value='subtraction'>Subtraction</option>
@@ -117,7 +123,19 @@ const QuizPage = () => {
           <br />
           <br />
           <br />
-
+          <Link to={"/flashcards/addFlashcard"}>Flashcards</Link>
+          <br></br>
+          <Link to={"/resources"}>Resources</Link>
+          <br></br>
+          <Link to={"/rating"}>Rate our page</Link>
+          <br></br>
+          <br></br>
+            <h6>
+                Click button to change style
+            </h6>
+            <button onClick={lightBackground}>Light</button>
+            <button onClick={darkBackground}>Grey</button>
+            <button onClick={blueBackground}>Blue</button>
         </div>
       ) : (
         <>
