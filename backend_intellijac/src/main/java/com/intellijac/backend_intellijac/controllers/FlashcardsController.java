@@ -20,7 +20,7 @@ public class FlashcardsController {
 
     @CrossOrigin
     @PostMapping("/flashcard")
-    Flashcard newFlashcard(@RequestBody Flashcard newFlashcard){
+    public Flashcard newFlashcard(@RequestBody Flashcard newFlashcard){
         return flashcardRepository.save(newFlashcard);
     }
 

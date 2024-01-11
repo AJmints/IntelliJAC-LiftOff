@@ -1,9 +1,10 @@
-.quiz-page {
+/* .quiz-page {
     font-family: 'Arial', sans-serif;
     padding: 20px;
-  }
+  } */
   
-  .start-quiz-container-light {
+  .start-quiz-container-normal {
+    padding: 20px;
     text-align: center;
     margin-top: 20px;
     font-size: 20px;
@@ -11,19 +12,24 @@
     color: #333;
   }
 
-  .start-quiz-container-grey {
+  .start-quiz-container-big {
+    padding: 20px;
     text-align: center;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 40px;
     background-color: #ccc;
     color: #333;
   }
 
-  .start-quiz-container-blue {
+  .start-quiz-container-fun {
+    padding: 20px;
     text-align: center;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 30px;
+    font-family: fantasy;
+    font-weight: bolder;
     background-color: lightcyan;
+    background-image: url("/Users/tus18846/IdeaProjects/IntelliJAC-LiftOff/frontend_intellijac/intellijac-frontend/src/styles/spongebob-water-background-9qyre.webp");
     color: #333;
   }
 

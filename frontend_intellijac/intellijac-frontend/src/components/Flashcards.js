@@ -51,12 +51,12 @@ function Flashcards () {
 
     // Page display 
     return (
-        <div>
+        <div >
             <br></br>
             <br></br>
             <h1>Create your own math flashcards!</h1>
-            <form onSubmit={(e) => onSubmit(e)}> 
-                <div>
+            <form style={{textAlign: "center"}} onSubmit={(e) => onSubmit(e)}> 
+                <div className="center">
                 <label for="flashcard-name"> Your question</label>
                 </div>
                 <div>
@@ -107,6 +107,9 @@ function Flashcards () {
                 </table>
                 </div>
             </div>
+            <Link style={{display: "block", margin: "auto"}} className="btn btn-outline-primary mx-2" to="/quiz">
+              Back to Quiz page!    
+              </Link>
         </div>
     );
 

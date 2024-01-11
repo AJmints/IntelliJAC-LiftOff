@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import './Resources.css';
 import { ResourcesList } from './resourceslist';
+import { Link } from "react-router-dom"; 
+
 
 function Resources (){
 // Create code to search inside box
@@ -22,6 +24,9 @@ return(
                 <li key={resource.id} className="listItem"><a href={`${resource.url}`}>{resource.name}</a></li>
             ))}
         </ul>
+        <Link style={{display: "block", margin: "auto"}} className="btn btn-outline-primary mx-2" to="/quiz">
+              Back to Quiz page!    
+              </Link>
     </div>
 
 )
