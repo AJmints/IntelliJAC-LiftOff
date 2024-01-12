@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 const QuizPage = () => {
 
   // Added code here and on lines 125- to change background
-        const [style, setStyle] = useState();
+      const [style, setStyle] = useState("start-quiz-container-normal");
 
-        const darkBackground = () => {
-          setStyle("start-quiz-container-grey");
-         }
-        const lightBackground = () => {
-          setStyle("start-quiz-container-light");
-        }
-        const blueBackground = () => {
-          setStyle("start-quiz-container-blue");
-        }
+      const normalBackground = () => {
+        setStyle("start-quiz-container-normal");
+      }
+      const bigBackground = () => {
+        setStyle("start-quiz-container-big");
+      }
+      const funBackground = () => {
+        setStyle("start-quiz-container-fun");
+      }
      
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -105,7 +105,7 @@ const QuizPage = () => {
   };
 
   return (
-    <div className={`quiz-page ${style}`}>
+    <div className={style}>
       {currentQuestion === 0 ? (
         <div className={style}>
         <p style={{textAlign: "center", fontSize: "40px", color: "Green"}}> <u>Are You Ready??  Let's Begin!!</u></p>
@@ -126,9 +126,9 @@ const QuizPage = () => {
             <h6>
                 Click button to change style
             </h6>
-            <button onClick={lightBackground}>Light</button>
-            <button onClick={darkBackground}>Grey</button>
-            <button onClick={blueBackground}>Blue</button>
+            <button onClick={normalBackground}>Normal</button>
+            <button onClick={bigBackground}>Big</button>
+            <button onClick={funBackground}>Fun</button>
         </div>
       ) : (
         <>
