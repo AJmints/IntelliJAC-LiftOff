@@ -64,8 +64,8 @@ function Loginforms() {
     try {
       const response = await axios(config);
 
-      if (response.data.message === 'Username not exists') {
-        setErrors({ ...errors, employeename: 'Username not exists' });
+      if (response.data.message === 'Username does not exists') {
+        setErrors({ ...errors, employeename: response.data.message });
       } else if (response.data.message === 'Login Success') {
         alert('Login Success');
         navigate('/quiz');
@@ -89,7 +89,7 @@ function Loginforms() {
             type="text"
             id="loginform-employeename"
             name="employeename"
-            placeholder="Username"
+            placeholder="Name"
             onChange={(e) => onInputChange(e)}
             value={employeename}
             className="form-input"
