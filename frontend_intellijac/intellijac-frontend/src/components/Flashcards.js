@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link, useParams } from "react-router-dom"; 
 
@@ -43,10 +43,23 @@ function Flashcards () {
         setFlashcard({...flashcard, [e.target.name]: e.target.value});
     };
 
-    const onSubmit = async (e) => {
-        //e.preventDefault();
+//    const onSubmit = async (e) => {
+//        //e.preventDefault();
+//        await axios.post("http://localhost:8080/flashcards/flashcard", flashcard);
+//    };
+
+const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
         await axios.post("http://localhost:8080/flashcards/flashcard", flashcard);
-    };
+
+    } catch (error) {
+        console.error("Error submitting flashcard:", error);
+
+    }
+};
+
 
 
     // Page display 

@@ -30,7 +30,7 @@ function Registerforms() {
     // Basic client-side validation
     let newErrors = {};
     if (!employeename.trim()) {
-      newErrors = { ...newErrors, employeename: 'Please enter the employee name.' };
+      newErrors = { ...newErrors, employeename: 'Please enter the user name.' };
     }
 
     if (!email.trim()) {
@@ -70,7 +70,7 @@ function Registerforms() {
       const response = await axios(config);
 
       console.log(JSON.stringify(response.data));
-      alert('Employee Registered Successfully');
+      alert('User Registered Successfully');
       navigate('/api/login');
     } catch (error) {
       console.log('Error during registration!', error);
@@ -90,7 +90,7 @@ function Registerforms() {
             type="text"
             id="registerform-employeename"
             name="employeename"
-            placeholder="Username"
+            placeholder="Name"
             onChange={(e) => onInputChange(e)}
             value={employeename}
             className="form-input"
