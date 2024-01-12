@@ -26,6 +26,7 @@ import UserComments from './components/UserComments';
 
 import ChangeStyles from './components/ChangeStyles.js';
 import NumberOfTheDay from './components/NumberOfTheDay.js';
+import NumberButton from './components/NumberButton.js';
 
 
 
@@ -66,7 +67,9 @@ function Home() {
       <WelcomeContent />
       <Buttons />
       <ContactButton />
+      <br />
       <TeamButton />
+      <NumberButton />
 
     </>
 
