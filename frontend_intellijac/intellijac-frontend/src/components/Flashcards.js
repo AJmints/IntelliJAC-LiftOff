@@ -53,10 +53,10 @@ const onSubmit = async (e) => {
 
     try {
         await axios.post("http://localhost:8080/flashcards/flashcard", flashcard);
-        // Optionally, you can add code here if the request is successful
+
     } catch (error) {
         console.error("Error submitting flashcard:", error);
-        // Handle the error if needed
+
     }
 };
 

@@ -24,14 +24,14 @@ function UserComments () {
 //    };
 
 const onSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault();
 
     try {
         await axios.post("http://localhost:8080/comments/add", userComment);
         alert("Thanks for your comment!");
     } catch (error) {
         console.error("Error submitting comment:", error);
-        // Handle the error if needed
+
     }
 };
 

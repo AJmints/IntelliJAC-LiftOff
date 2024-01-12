@@ -31,11 +31,11 @@ const onSubmit = async (e) => {
     e.preventDefault();
     try {
         await axios.put(`http://localhost:8080/flashcards/flashcard/${id}`, flashcard);
-        // Add a log or handle success if needed
+
         console.log("Flashcard updated successfully");
     } catch (error) {
         console.error("Error updating flashcard:", error);
-        // Handle the error if needed
+
     }
 };
 
