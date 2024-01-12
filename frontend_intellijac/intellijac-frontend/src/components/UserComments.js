@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function UserComments () {
@@ -12,16 +12,28 @@ function UserComments () {
     })
 
     const {name, comment} = userComment
-    
+
 
     const onInputChange = (e) => {
         setUserComment({...userComment, [e.target.name]: e.target.value});
     };
 
 
-    const onSubmit = async (e) => {
+//    const onSubmit = async (e) => {
+//        await axios.post("http://localhost:8080/comments/add", userComment);
+//    };
+
+const onSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    try {
         await axios.post("http://localhost:8080/comments/add", userComment);
-    };    
+        alert("Thanks for your comment!");
+    } catch (error) {
+        console.error("Error submitting comment:", error);
+        // Handle the error if needed
+    }
+};
 
     return (
         <div>
@@ -38,7 +50,7 @@ function UserComments () {
                 <div>
                     <label> Your comment: </label>
                 </div>
-                <div>                    
+                <div>
                     <textarea type="text" className="form-control" id="userComment-comment" name="comment" placeholder="What do you think about our app?" rows={"6"} onChange={(e) => onInputChange(e)} value={comment}/>
                 </div>
                 <button className="btn btn-outline-primary mx-2" type="submit" onClick={() => alert("Thanks for your comment!")}>Save your comment!</button>
