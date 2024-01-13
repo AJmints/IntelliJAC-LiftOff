@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/NumberOfTheDay.css";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const NumberOfTheDay = () => {
   const [numberData, setNumberData] = useState(null);
@@ -10,7 +11,7 @@ const NumberOfTheDay = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://api.math.tools/numbers/nod");
-        setNumberData(response.data.contents.nod); 
+        setNumberData(response.data.contents.nod);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -31,9 +32,10 @@ const NumberOfTheDay = () => {
   const { numbers } = numberData;
 
   return (
-    <div>
-      <h1>Number of the Day</h1>
-      <p>
+    <div style= {{backgroundColor: "#DBCDF0"}}>
+      <h1 style= {{ color: "#80202B"}}><u>!! Here Is The Number For Today !!</u></h1>
+      <br />
+      <p style={{ textAlign: "center", color: "#4FB06D", fontSize: "20px"}}>
         Number: {numbers.number}
         <br />
 
@@ -45,6 +47,8 @@ const NumberOfTheDay = () => {
         <br />
         Binary: {numbers.bases.binary.value}
       </p>
+      <br />
+      <Link to="/">Go to HomePage</Link>
     </div>
   );
 };

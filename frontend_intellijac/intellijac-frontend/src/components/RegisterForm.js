@@ -70,7 +70,7 @@ function Registerforms() {
       const response = await axios(config);
 
       console.log(JSON.stringify(response.data));
-      alert('Employee Registered Successfully');
+      alert('User Registered Successfully');
       navigate('/api/login');
     } catch (error) {
       console.log('Error during registration!', error);
@@ -90,7 +90,7 @@ function Registerforms() {
             type="text"
             id="registerform-employeename"
             name="employeename"
-            placeholder="Username"
+            placeholder="Name"
             onChange={(e) => onInputChange(e)}
             value={employeename}
             className="form-input"

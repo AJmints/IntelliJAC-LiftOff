@@ -45,10 +45,10 @@ public class EmployeeIMPL implements EmployeeService {
                     return new LoginMessage("Login Failed", false);
                 }
             } else {
-                return new LoginMessage("Password not Match", false);
+                return new LoginMessage("Username and Password does not Match", false);
             }
         }else {
-            return new LoginMessage("Username not exits", false);
+            return new LoginMessage("Username does not exists", false);
         }
     }
 }
