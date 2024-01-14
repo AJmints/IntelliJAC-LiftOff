@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
+import { Link } from "react-router-dom";
 
 function UserComments () {
 
@@ -24,25 +25,32 @@ function UserComments () {
     };    
 
     return (
-        <div>
+        <div style={{backgroundColor:"#FFF5EE"}}>
             <br></br>
             <br></br>
-            <h1>Please tell us about the app!</h1>
+            <h1 style={{color:"#008B8B"}}><b>Please tell us about the app!</b></h1>
             <form onSubmit={(e) => onSubmit(e)}>
                 <div>
-                    <label> Your name: </label>
+                    <label style={{fontSize: "25px", marginLeft:"40px", marginRight:"40px"}}><b> Your name: </b></label>
                 </div>
-                <div>
+                <div style={{marginLeft:"40px", marginRight:"40px"}}>
                     <input type="text" id="userComment-name" name="name" onChange={(e) => onInputChange(e)} value={name}/>
                 </div>
                 <div>
-                    <label> Your comment: </label>
+                    <br></br>
+                    <label style={{fontSize: "25px", marginLeft:"40px", marginRight:"40px"}}><b> Your comment: </b></label>
                 </div>
-                <div>                    
+                <div style={{marginLeft:"40px", marginRight:"40px"}}>                    
                     <textarea type="text" className="form-control" id="userComment-comment" name="comment" placeholder="What do you think about our app?" rows={"6"} onChange={(e) => onInputChange(e)} value={comment}/>
                 </div>
-                <button className="btn btn-outline-primary mx-2" type="submit" onClick={() => alert("Thanks for your comment!")}>Save your comment!</button>
+                <br></br>
+                <div style={{marginLeft:"40px", marginRight:"40px"}}>
+                <button className="btn btn-outline-primary mx-2" type="submit" onClick={() => alert("Thanks for your comment!")}><b>Save your comment!</b></button>
+                <Link to="/"><b>Go to HomePage</b></Link>
+                </div>
             </form>
+            <br></br>
+            
         </div>
 
     );
