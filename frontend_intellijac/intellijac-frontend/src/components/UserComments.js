@@ -45,7 +45,7 @@ function UserComments () {
                 </div>
                 <br></br>
                 <div style={{marginLeft:"40px", marginRight:"40px"}}>
-                <button className="btn btn-outline-primary mx-2" type="submit" onClick={() => alert("Thanks for your comment!")}><b>Save your comment!</b></button>
+                <button className="btn btn-outline-primary mx-2" style={{backgroundColor: "#CD5C5C"}} type="submit" onClick={() => alert("Thanks for your comment!")}><b style={{color:"white"}}>Save your comment!</b></button>
                 <Link to="/"><b>Go to HomePage</b></Link>
                 </div>
             </form>
