@@ -3,48 +3,86 @@ import "../styles/NumberOfTheDay.css";
 import axios from 'axios';
 
 const NumberOfTheDay = () => {
-  const [numberData, setNumberData] = useState(null);
+  const [todayData, setTodayData] = useState(null);
+  const [yesterdayData, setYesterdayData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const fetchData = async (date) => {
+    try {
+      const response = await axios.get(`https://api.math.tools/numbers/nod?date=${date}`);
+      return response.data.contents.nod;
+    } catch (error) {
+      console.error(`Error fetching data for ${date}:`, error);
+      return null;
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://api.math.tools/numbers/nod");
-        setNumberData(response.data.contents.nod); 
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
+    const fetchAllData = async () => {
+      const today = new Date().toISOString().split('T')[0];
+      const yesterday = new Date(Date.now() - 864e5).toISOString().split('T')[0]; // Subtract 1 day in milliseconds
+
+      const [todayResponse, yesterdayResponse] = await Promise.all([
+        fetchData(today),
+        fetchData(yesterday),
+      ]);
+
+      setTodayData(todayResponse);
+      setYesterdayData(yesterdayResponse);
+      setLoading(false);
     };
-    fetchData();
+
+    fetchAllData();
   }, []);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!numberData) {
+  if (!todayData || !yesterdayData) {
     return <div>Data is missing or in an unexpected format.</div>;
   }
 
-  const { numbers } = numberData;
-
   return (
     <div>
-      <h1>Number of the Day</h1>
-      <p>
-        Number: {numbers.number}
-        <br />
+  <div className="container">
+    <h1>Number of the Day</h1>
 
-        Cardinal: {numbers.names.cardinal.display}
-        <br />
-        Ordinal: {numbers.names.ordinal.display}
-        <br />
-        US Currency: {numbers.names.us_currency.display}
-        <br />
-        Binary: {numbers.bases.binary.value}
-      </p>
+    {loading && <div className="loading">Loading...</div>}
+
+    {!todayData || !yesterdayData ? (
+      <div className="error">Data is missing or in an unexpected format.</div>
+    ) : (
+      <>
+        <h2>Today</h2>
+        <p>
+          Number: {todayData.numbers.number}
+          <br />
+          Cardinal: {todayData.numbers.names.cardinal.display}
+          <br />
+          Ordinal: {todayData.numbers.names.ordinal.display}
+          <br />
+          US Currency: {todayData.numbers.names.us_currency.display}
+          <br />
+          Binary: {todayData.numbers.bases.binary.value}
+        </p>
+
+        <h2>Yesterday</h2>
+        <p>
+          Number: {yesterdayData.numbers.number}
+          <br />
+          Cardinal: {yesterdayData.numbers.names.cardinal.display}
+          <br />
+          Ordinal: {yesterdayData.numbers.names.ordinal.display}
+          <br />
+          US Currency: {yesterdayData.numbers.names.us_currency.display}
+          <br />
+          Binary: {yesterdayData.numbers.bases.binary.value}
+        </p>
+      </>
+    )}
+  </div>
+);
     </div>
   );
 };

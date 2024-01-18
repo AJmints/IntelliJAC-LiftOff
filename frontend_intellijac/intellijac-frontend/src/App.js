@@ -25,7 +25,7 @@ import QuizPage from './components/QuizPage.js';
 import UserComments from './components/UserComments';
 
 import ChangeStyles from './components/ChangeStyles.js';
-
+import NumberOfTheDay from './components/NumberOfTheDay.js';
 
 
 
@@ -49,6 +49,8 @@ function App() {
           <Route exact path="/userComment" element={<UserComments/>}/>
 
           <Route exact path="/styles" element={<ChangeStyles/>}/>
+          <Route exact path="/numberoftheday" element={<NumberOfTheDay/>}/>
+
 
 
 
